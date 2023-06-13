@@ -1,0 +1,20 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider     = "mysql"
+    url          = env("DATABASE_URL")
+    relationMode = "prisma"
+}
+
+model User {
+    username String   @id
+    fullname String
+    type     UserType @default(USER)
+}
+
+enum UserType {
+    USER
+    DRIVER
+}

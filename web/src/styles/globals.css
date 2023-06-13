@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: joyFont;
+    font-weight: 400;
+    src: url(../../public/fonts/AxiformaRegular.ttf);
+  }
+  @font-face {
+    font-family: joyFont;
+    font-weight: 500;
+    src: url(../../public/fonts/AxiformaMedium.ttf);
+  }
+  @font-face {
+    font-family: joyFont;
+    font-weight: 600;
+    src: url(../../public/fonts/AxiformaSemiBold.ttf);
+  }
+
+  body {
+    @apply m-0 h-screen w-screen overflow-x-hidden overflow-y-hidden bg-joy-white p-0 font-joyFont text-[14px] font-[400] text-joy-black md:text-[16px];
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  button {
+    @apply hover:cursor-pointer;
+  }
+
+  * {
+    @apply box-border;
+    -webkit-tap-highlight-color: transparent;
+  }
+  ::-webkit-scrollbar {
+    @apply w-[5px] bg-joy-white;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-joy-green;
+  }
+}
