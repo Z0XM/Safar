@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rating Message</title>
+  </head>
+  <body>
+    <h2>Results:</h2>
+    <p>Similar Message: {{similar_message}}</p>
+    <p>Top 3 Messages:</p>
+    <ul>
+      {% for message,score in top_3_comments %}
+      {%if score == 'neg'%}  
+         <li style='background-color:red';>{{ message }}</li>
+      {%else%}
+         <li style='background-color:green';>{{ message }}</li>
+      {%endif%}
+
+      {% endfor %}
+    </ul>
+  </body>
+</html>
