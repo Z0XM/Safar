@@ -1,5 +1,8 @@
 # **SAFAR**
 
+![safar](https://github.com/Z0XM/Safar/assets/76272788/ffd70b6e-4914-4253-956f-1002db01f0f1)
+
+
 ## Global AI HackFest 2023 | Travel, Logistics & Supply Chain
 
 ## Problem Statement
@@ -39,6 +42,8 @@ docker run -p 3000:3000 safar
 
 ## Features of Safar
 
+![featurescover](https://github.com/Z0XM/Safar/assets/76272788/0ac62899-2770-4bfa-9f1c-eb39404cf5c9)
+
 ## Tech Stack
 
 * TypeScript
@@ -67,3 +72,4 @@ Team members are :
 ## Visit our Website:  //TODO
 ## View our Presentation: //TODO
 
+![thankucover](https://github.com/Z0XM/Safar/assets/76272788/0fa4a37c-0832-498a-99ff-3ed7c4b61659)
