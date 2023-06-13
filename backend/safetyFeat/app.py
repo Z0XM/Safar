@@ -9,6 +9,7 @@ decision = st.sidebar.radio("Choose",("Driver background Check","Vehicel Inspect
 
 if decision=="Vehicel Inspection":
     st.header("Check the Vehicle condition")
+    st.markdown("[HuggingFace Space](https://huggingface.co/spaces/Anmolvm/safar_vehicle_inspection)")
     view_btn = st.button("View Vehical Inspection Report")
     
     if view_btn:
