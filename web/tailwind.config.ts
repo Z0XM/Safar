@@ -4,7 +4,7 @@ export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      joyFont: ["joyFont", "sans-serif"],
+      safarFont: ["safarFont", "sans-serif"],
     },
     screens: {
       xs: "0px",
@@ -16,10 +16,10 @@ export default {
     },
     extend: {
       colors: {
-        "joy-green": "#15BB44",
-        "joy-green-l": "#F1FFF5",
-        "joy-black": "#000000",
-        "joy-white": "#ffffff",
+        "safar-orange": "#FF8B00",
+        "safar-orange-l": "#FFE0BA",
+        "safar-black": "#000000",
+        "safar-white": "#ffffff",
       },
     },
   },

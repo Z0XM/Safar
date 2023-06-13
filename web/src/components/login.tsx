@@ -15,8 +15,8 @@ const Login: React.FC = () => {
     router.push("/dashboard");
   };
   return (
-    <main className="grid h-screen grid-cols-2 bg-joy-white text-joy-black">
-      <div className="m-8 flex flex-col items-start justify-between rounded-xl bg-joy-green-l p-8 pb-0 ">
+    <main className="grid h-screen grid-cols-2 bg-safar-white text-safar-black">
+      <div className="m-8 flex flex-col items-start justify-between rounded-xl bg-safar-orange-l p-8 pb-0 ">
         <Image src="/logo/safar.png" alt="logo" width={112} height={27} />
         <div className="mt-16 text-5xl font-[600]">
           Trying to change the ride experience
@@ -26,7 +26,7 @@ const Login: React.FC = () => {
           ride, book a seat, and pay securely online.
         </div>
         <div className="mt-4 flex w-full justify-center">
-          <Image src="/png/hero.png" alt="hero" width={437} height={409} />
+          <Image src="/png/herohero.png" alt="hero" width={437} height={409} />
         </div>
       </div>
       <div className="ml-[4rem] mr-[6rem] flex flex-col items-center justify-center gap-4">
@@ -41,7 +41,7 @@ const Login: React.FC = () => {
         />
         <button
           onClick={handleLogin}
-          className="flex w-full flex-row items-center  justify-center gap-4 rounded-md bg-joy-green px-4 py-4 text-joy-white"
+          className="flex w-full flex-row items-center  justify-center gap-4 rounded-md bg-safar-orange px-4 py-4 text-safar-white"
         >
           Get Started{" "}
           <Image

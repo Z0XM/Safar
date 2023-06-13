@@ -14,12 +14,12 @@ const Navbar = () => {
       <div className="flex flex-row gap-32">
         <Image src="/logo/safar.png" alt="safar" width={103} height={25} />
         <div className=" flex flex-row gap-8">
-          <div className="text-joy-green">COMMUTE</div>
+          <div className="text-safar-orange">COMMUTE</div>
           <div>MY RIDES</div>
           <div>SETTINGS</div>
         </div>
       </div>
-      <button onClick={logoutHandler} className=" text-joy-green">
+      <button onClick={logoutHandler} className=" text-safar-orange">
         LOGOUT
       </button>
     </div>

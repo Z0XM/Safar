@@ -25,7 +25,7 @@ const Dashboard = () => {
       <div className="flex h-screen w-screen items-center justify-center">
         <Image
           className="animate-spin"
-          src="/svg/loading-green.svg"
+          src="/svg/loading-orange.svg"
           alt="loading"
           width={50}
           height={50}

@@ -82,7 +82,7 @@ const UserProfile = () => {
       <div className="flex h-screen w-screen items-center justify-center">
         <Image
           className="animate-spin"
-          src="/svg/loading-green.svg"
+          src="/svg/loading-orange.svg"
           alt="loading"
           width={50}
           height={50}
@@ -119,7 +119,9 @@ const UserProfile = () => {
       {bookingState !== "review" && bookingState !== "final" && (
         <div className="flex w-[40vw] flex-col gap-8 overflow-y-scroll border-r-2 border-r-gray-200 p-8">
           <div className="">
-            <div className="mb-2 ml-4 w-full text-joy-green">Trip Details</div>
+            <div className="mb-2 ml-4 w-full text-safar-orange">
+              Trip Details
+            </div>
             <div className="flex w-full flex-col gap-4 rounded-lg border-2 border-gray-200 p-4">
               <div className="flex w-full flex-col">
                 <div className="mb-2 w-full text-xs text-gray-400">
@@ -129,7 +131,7 @@ const UserProfile = () => {
                   <input
                     disabled={bookingState !== "searching"}
                     ref={pickRef}
-                    className="w-full rounded-md border-2 border-gray-200 px-2 py-1 focus:outline-joy-green"
+                    className="w-full rounded-md border-2 border-gray-200 px-2 py-1 focus:outline-safar-orange"
                   />
                   <button
                     disabled={bookingState !== "searching"}
@@ -156,7 +158,7 @@ const UserProfile = () => {
                   <input
                     disabled={bookingState !== "searching"}
                     ref={destRef}
-                    className="w-full rounded-md border-2 border-gray-200 px-2 py-1 focus:outline-joy-green"
+                    className="w-full rounded-md border-2 border-gray-200 px-2 py-1 focus:outline-safar-orange"
                   />
                   <button
                     disabled={bookingState !== "searching"}
@@ -178,8 +180,10 @@ const UserProfile = () => {
             </div>
           </div>
           <div className="">
-            <div className="mb-2 ml-4 text-joy-green">Select a ride type</div>
-            <div className="relative rounded-lg border-2 border-gray-200 bg-joy-white">
+            <div className="mb-2 ml-4 text-safar-orange">
+              Select a ride type
+            </div>
+            <div className="relative rounded-lg border-2 border-gray-200 bg-safar-white">
               <div className="flex flex-row justify-between p-4 ">
                 <div className="flex flex-row gap-4">
                   <Image
@@ -204,7 +208,7 @@ const UserProfile = () => {
                   <Image
                     className={`${
                       showRides ? "rotate-180" : ""
-                    } rounded-full p-1 transition-[transform] duration-300 hover:border-2 hover:border-joy-green`}
+                    } rounded-full p-1 transition-[transform] duration-300 hover:border-2 hover:border-safar-orange`}
                     src="/svg/arrow-d.svg"
                     alt="r"
                     width={25}
@@ -214,7 +218,7 @@ const UserProfile = () => {
               </div>
 
               {showRides && (
-                <div className="t-[100%] absolute z-10 flex w-full flex-col gap-4 rounded-lg border-2 border-gray-200 bg-joy-white p-4">
+                <div className="t-[100%] absolute z-10 flex w-full flex-col gap-4 rounded-lg border-2 border-gray-200 bg-safar-white p-4">
                   {[
                     {
                       carImg: "/svg/car.svg",
@@ -252,7 +256,7 @@ const UserProfile = () => {
                               height={40}
                             />
                             <div className=" flex flex-col items-start">
-                              <div className="group-hover:font-bold group-hover:text-joy-green">
+                              <div className="group-hover:font-bold group-hover:text-safar-orange">
                                 {v.title}
                               </div>
                               <div className="text-xs text-gray-400">
@@ -269,7 +273,7 @@ const UserProfile = () => {
           </div>
           {bookingState === "searching" && (
             <div className="">
-              <div className="mb-2 ml-4 text-joy-green">Select timings</div>
+              <div className="mb-2 ml-4 text-safar-orange">Select timings</div>
               <div className="flex w-full flex-row justify-between gap-4">
                 <div className="flex flex-1 flex-row justify-between rounded-lg border-2 border-gray-200 p-4">
                   <div className="flex flex-col">
@@ -309,12 +313,12 @@ const UserProfile = () => {
             </div>
           )}
           <div className="">
-            <div className="mb-2 ml-4 text-joy-green">Payment Details</div>
+            <div className="mb-2 ml-4 text-safar-orange">Payment Details</div>
             <div className="flex flex-row gap-4 rounded-lg border-2 border-gray-200 p-4">
               <div className="flex w-full flex-col">
                 <div className="mb-1">
                   Your fair for the ride is
-                  <span className="font-bold text-joy-green"> ₹164</span>
+                  <span className="font-bold text-safar-orange"> ₹164</span>
                 </div>
                 <div className="text-xs text-gray-400">
                   Select payment method
@@ -380,7 +384,7 @@ const UserProfile = () => {
             <div className="">
               <div className="flex flex-row justify-between gap-4 rounded-lg border-2 border-gray-200 p-4">
                 <div>Your ride is on the way</div>
-                <div className="text-joy-green">ETA 15 mins</div>
+                <div className="text-safar-orange">ETA 15 mins</div>
               </div>
             </div>
           )}
@@ -388,7 +392,7 @@ const UserProfile = () => {
             <div className="">
               <div className="flex flex-row justify-between gap-4 rounded-lg border-2 border-gray-200 p-4">
                 <div>On journey, reaching destination soon</div>
-                <div className="text-joy-green">ETA 15 mins</div>
+                <div className="text-safar-orange">ETA 15 mins</div>
               </div>
             </div>
           )}
@@ -423,7 +427,7 @@ const UserProfile = () => {
                   setBookingState("searching");
                 }
               }}
-              className="flex w-full flex-row items-center justify-center gap-4 rounded-lg bg-joy-green px-4 py-4 text-joy-white"
+              className="flex w-full flex-row items-center justify-center gap-4 rounded-lg bg-safar-orange px-4 py-4 text-safar-white"
             >
               {bookingState === "searching" && <div>Book your Safar Ride</div>}
               {bookingState === "booking" && <div>Searching...</div>}
@@ -453,7 +457,7 @@ const UserProfile = () => {
       {bookingState === "review" && (
         <div className="flex w-[40vw] flex-col gap-8 overflow-y-scroll border-r-2 border-r-gray-200 p-8">
           <div>
-            <div className="text-4xl font-bold text-joy-green">
+            <div className="text-4xl font-bold text-safar-orange">
               Journey Complete!
             </div>
             <div className="mt-4 text-gray-400">
@@ -463,10 +467,10 @@ const UserProfile = () => {
           <div className="flex flex-row gap-4">
             <div className="flex-1 rounded-lg border-2 border-gray-200 p-4">
               Your fair for the ride is{" "}
-              <span className="font-bold text-joy-green">₹164</span>
+              <span className="font-bold text-safar-orange">₹164</span>
             </div>
-            <div className="flex flex-row items-center justify-center gap-4 rounded-lg bg-joy-green px-8 py-4">
-              <div className="text-joy-white">Pay Now </div>
+            <div className="flex flex-row items-center justify-center gap-4 rounded-lg bg-safar-orange px-8 py-4">
+              <div className="text-safar-white">Pay Now </div>
               <Image
                 src="/png/arrow-r.png"
                 alt="right arrow"
@@ -476,7 +480,7 @@ const UserProfile = () => {
             </div>
           </div>
           <div className="">
-            <div className="mb-2 ml-4 w-full text-joy-green">
+            <div className="mb-2 ml-4 w-full text-safar-orange">
               Rate the journey
             </div>
             <div className="flex flex-row justify-between rounded-lg border-2 border-gray-200 p-4">
@@ -549,7 +553,7 @@ const UserProfile = () => {
               </div>
             </div>
             <input
-              className="mt-4 w-full rounded-lg border-2 border-gray-200 p-4 focus:outline-joy-green"
+              className="mt-4 w-full rounded-lg border-2 border-gray-200 p-4 focus:outline-safar-orange"
               placeholder="Write your review"
               value={myReview}
               onChange={(e) => {
@@ -564,7 +568,7 @@ const UserProfile = () => {
                 reviews.refetch();
                 setBookingState("final");
               }}
-              className="mt-8 flex w-full flex-row items-center justify-center gap-4 rounded-lg bg-joy-green px-4 py-4 text-joy-white"
+              className="mt-8 flex w-full flex-row items-center justify-center gap-4 rounded-lg bg-safar-orange px-4 py-4 text-safar-white"
             >
               Submit
               <Image
@@ -579,36 +583,46 @@ const UserProfile = () => {
       )}
       {bookingState === "final" && reviews.data && (
         <div className="flex w-[40vw] flex-col overflow-y-scroll border-r-2 border-r-gray-200 p-8">
-          <div className="mb-4 text-3xl text-joy-green">
+          <div className="mb-4 text-3xl text-safar-orange">
             Driver&apos;s Rating
           </div>
-          <div className="mb-2 ml-4  mt-4 text-joy-green">My Review</div>
+          <div className="mb-2 ml-4  mt-4 text-safar-orange">My Review</div>
           <div className="flex flex-row justify-between rounded-lg border-2 border-gray-200 p-4">
             {myReview}
           </div>
-          <div className="mb-2 ml-4 mt-4 text-joy-green">Similar Reviews</div>
+          <div className="mb-2 ml-4 mt-4 text-safar-orange">
+            Similar Reviews
+          </div>
           <div className="flex flex-row justify-between rounded-lg border-2 border-gray-200 p-4">
             {reviewJSON.similar_message}
           </div>
-          <div className="mb-2 ml-4 mt-4 text-joy-green">Similar Reviews</div>
+          <div className="mb-2 ml-4 mt-4 text-safar-orange">
+            Similar Reviews
+          </div>
           <div className="flex flex-col gap-4 ">
             <div
               className={`flex flex-row justify-between rounded-lg border-2 border-gray-200 p-4 ${
-                reviewJSON.scores[0] === "neg" ? "text-red" : "text-joy-green"
+                reviewJSON.scores[0] === "neg"
+                  ? "text-red"
+                  : "text-safar-orange"
               }`}
             >
               {reviewJSON.top_3_comments[0]}
             </div>
             <div
               className={`flex flex-row justify-between rounded-lg border-2 border-gray-200 p-4 ${
-                reviewJSON.scores[1] === "neg" ? "text-red" : "text-joy-green"
+                reviewJSON.scores[1] === "neg"
+                  ? "text-red"
+                  : "text-safar-orange"
               }`}
             >
               {reviewJSON.top_3_comments[1]}
             </div>
             <div
               className={`flex flex-row justify-between rounded-lg border-2 border-gray-200 p-4 ${
-                reviewJSON.scores[2] === "neg" ? "text-red" : "text-joy-green"
+                reviewJSON.scores[2] === "neg"
+                  ? "text-red"
+                  : "text-safar-orange"
               }`}
             >
               {reviewJSON.top_3_comments[2]}
@@ -619,7 +633,7 @@ const UserProfile = () => {
               // eslint-disable-next-line @typescript-eslint/no-floating-promises
               setBookingState("searching");
             }}
-            className="mt-8 flex w-full flex-row items-center justify-center gap-4 rounded-lg bg-joy-green px-4 py-4 text-joy-white"
+            className="mt-8 flex w-full flex-row items-center justify-center gap-4 rounded-lg bg-safar-orange px-4 py-4 text-safar-white"
           >
             Continue
             <Image
@@ -633,15 +647,15 @@ const UserProfile = () => {
       )}
       <div className="relative w-[60vw]">
         {bookingState === "booking" && (
-          <div className="absolute bottom-0 z-10 flex w-full flex-col items-center justify-center border-t-2 border-t-gray-200 bg-joy-white px-8 py-16">
+          <div className="absolute bottom-0 z-10 flex w-full flex-col items-center justify-center border-t-2 border-t-gray-200 bg-safar-white px-8 py-16">
             <Image
               className="animate-spin"
-              src="/svg/loading-green.svg"
+              src="/svg/loading-orange.svg"
               alt="loading"
               width={25}
               height={25}
             />
-            <div className="mt-4 text-3xl text-joy-green">
+            <div className="mt-4 text-3xl text-safar-orange">
               Searching your Safar Ride...
             </div>
             <div className="text-gray-400">
@@ -653,15 +667,15 @@ const UserProfile = () => {
                 setShowChat(false);
                 setBookingState("searching");
               }}
-              className="mt-4 flex flex-row items-center justify-center gap-4 rounded-lg bg-joy-green  px-16 py-4 text-joy-white"
+              className="mt-4 flex flex-row items-center justify-center gap-4 rounded-lg bg-safar-orange  px-16 py-4 text-safar-white"
             >
               Cancel
             </button>
           </div>
         )}
         {(bookingState === "onway" || bookingState === "journey") && (
-          <div className="absolute top-0 z-10 flex w-full flex-col  justify-center border-b-2 border-b-gray-200 bg-joy-white px-8 py-8">
-            <div className=" text-joy-green">Ride Information</div>
+          <div className="absolute top-0 z-10 flex w-full flex-col  justify-center border-b-2 border-b-gray-200 bg-safar-white px-8 py-8">
+            <div className=" text-safar-orange">Ride Information</div>
             <div className="mt-4 flex w-full flex-row justify-between gap-4">
               <div className="relative flex flex-row  gap-4">
                 <Image
@@ -691,7 +705,7 @@ const UserProfile = () => {
               </div>
               <div className="flex flex-row justify-center gap-4">
                 <div className="mr-16 flex flex-col items-center justify-evenly gap-2">
-                  <div className="text-4xl text-joy-green">4.3</div>
+                  <div className="text-4xl text-safar-orange">4.3</div>
                   <div>Rating</div>
                 </div>
                 <div className="flex flex-col items-center justify-evenly  ">
@@ -761,7 +775,7 @@ const UserProfile = () => {
                 >
                   <div
                     className={`w-[70%] rounded-lg border-2 ${
-                      v.self ? "border-joy-green" : "border-gray-200"
+                      v.self ? "border-safar-orange" : "border-gray-200"
                     } p-4`}
                   >
                     {translateState ? v.translation : v.msg}
@@ -770,10 +784,10 @@ const UserProfile = () => {
               );
             })}
 
-            <div className="mt-8 flex flex-row rounded-lg border-2 border-gray-200 focus:border-joy-green">
+            <div className="mt-8 flex flex-row rounded-lg border-2 border-gray-200 focus:border-safar-orange">
               <input
                 ref={chatRef}
-                className="h-full w-full flex-1 rounded-lg border-none p-4 outline-none focus:border-joy-green"
+                className="h-full w-full flex-1 rounded-lg border-none p-4 outline-none focus:border-safar-orange"
                 placeholder="Type your message here"
               />
               <button

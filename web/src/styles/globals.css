@@ -4,23 +4,23 @@
 
 @layer base {
   @font-face {
-    font-family: joyFont;
+    font-family: safarFont;
     font-weight: 400;
     src: url(../../public/fonts/AxiformaRegular.ttf);
   }
   @font-face {
-    font-family: joyFont;
+    font-family: safarFont;
     font-weight: 500;
     src: url(../../public/fonts/AxiformaMedium.ttf);
   }
   @font-face {
-    font-family: joyFont;
+    font-family: safarFont;
     font-weight: 600;
     src: url(../../public/fonts/AxiformaSemiBold.ttf);
   }
 
   body {
-    @apply m-0 h-screen w-screen overflow-x-hidden overflow-y-hidden bg-joy-white p-0 font-joyFont text-[14px] font-[400] text-joy-black md:text-[16px];
+    @apply m-0 h-screen w-screen overflow-x-hidden overflow-y-hidden bg-safar-white p-0 font-safarFont text-[14px] font-[400] text-safar-black md:text-[16px];
   }
 
   a {
@@ -36,10 +36,10 @@
     -webkit-tap-highlight-color: transparent;
   }
   ::-webkit-scrollbar {
-    @apply w-[5px] bg-joy-white;
+    @apply w-[5px] bg-safar-white;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-joy-green;
+    @apply rounded-full bg-safar-orange;
   }
 }
