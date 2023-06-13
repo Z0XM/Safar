@@ -17,7 +17,7 @@ const Login: React.FC = () => {
   return (
     <main className="grid h-screen grid-cols-2 bg-joy-white text-joy-black">
       <div className="m-8 flex flex-col items-start justify-between rounded-xl bg-joy-green-l p-8 pb-0 ">
-        <Image src="/logo/joyride.png" alt="logo" width={112} height={27} />
+        <Image src="/logo/safar.png" alt="logo" width={112} height={27} />
         <div className="mt-16 text-5xl font-[600]">
           Trying to change the ride experience
         </div>

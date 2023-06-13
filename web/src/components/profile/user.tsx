@@ -425,9 +425,9 @@ const UserProfile = () => {
               }}
               className="flex w-full flex-row items-center justify-center gap-4 rounded-lg bg-joy-green px-4 py-4 text-joy-white"
             >
-              {bookingState === "searching" && <div>Book your Joy ride</div>}
+              {bookingState === "searching" && <div>Book your Safar Ride</div>}
               {bookingState === "booking" && <div>Searching...</div>}
-              {bookingState === "onway" && <div>Cancel JoyRide</div>}
+              {bookingState === "onway" && <div>Cancel Safar</div>}
               {bookingState === "searching" ||
                 (bookingState === "onway" && (
                   <Image
@@ -642,7 +642,7 @@ const UserProfile = () => {
               height={25}
             />
             <div className="mt-4 text-3xl text-joy-green">
-              Searching your JoyRide...
+              Searching your Safar Ride...
             </div>
             <div className="text-gray-400">
               Please wait while we find a comfortable ride for you
@@ -673,7 +673,7 @@ const UserProfile = () => {
                 <div className=" flex flex-col">
                   <div>Naruto Uzumaki</div>
                   <div className="text-xs text-gray-400">
-                    102 trips with JoyRide
+                    102 trips with Safar
                   </div>
                 </div>
               </div>
@@ -695,7 +695,7 @@ const UserProfile = () => {
                   <div>Rating</div>
                 </div>
                 <div className="flex flex-col items-center justify-evenly  ">
-                  <Link href="https://tarunjain0751-joyride-app-vd5ywa.streamlit.app/">
+                  <Link href="https://">
                     <Image
                       src="/svg/user-icon.svg"
                       alt="user"
