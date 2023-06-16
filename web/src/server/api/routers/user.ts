@@ -26,10 +26,19 @@ export const userRouter = createTRPCRouter({
     }),
   get: publicProcedure
     .input(ZUser.pick({ username: true }))
-    .query(({ ctx, input }) => {
-      return ctx.prisma.user.findUniqueOrThrow({
+    .query(async ({ ctx, input }) => {
+      const user = await ctx.prisma.user.findUnique({
         where: {
           username: input.username,
+        },
+      });
+
+      if (user) return user;
+
+      return await ctx.prisma.user.create({
+        data: {
+          username: input.username,
+          fullname: input.username,
         },
       });
     }),

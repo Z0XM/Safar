@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { api } from "@/utils/api";
 import Map from "../Map";
@@ -27,7 +28,7 @@ const UserProfile = () => {
   });
   const [bookingState, setBookingState] = useState<
     "searching" | "booking" | "onway" | "journey" | "review" | "final"
-  >("searching");
+  >("onway");
 
   const [timeoutState, setTimeoutState] = useState<
     NodeJS.Timeout | undefined
@@ -46,15 +47,28 @@ const UserProfile = () => {
     { msg: string; self: boolean; translation?: string }[]
   >([
     {
-      msg: "Hello, sir. I am on my way to pick you up at the address",
+      msg: "Hello, sir. I am on my way to pick you up at the address.",
       self: false,
     },
     {
       msg: "Hello! okay. I am waiting for you at the pickup location.",
       self: true,
     },
+    {
+      msg: "I arrived at the location.",
+      self: false,
+    },
+    {
+      msg: "I can see you.",
+      self: true,
+    },
   ]);
+  const [language, setLanguage] = useState<
+    "Hindi" | "Punjabi" | "Gujarati" | "Marathi" | "Kannada"
+  >("Hindi");
+
   const [translateState, setTranslateState] = useState<boolean>(false);
+  const [showTranslator, setShowTranslator] = useState<boolean>(false);
 
   const [starStates, setStarStates] = useState<boolean[]>([
     false,
@@ -97,22 +111,39 @@ const UserProfile = () => {
     return <div>Error...</div>;
   }
 
-  const chatTranslate = api.google.chats.useQuery({
-    chats: chats.map((v) => v.msg),
-  });
+  const chatTranslate: any = [
+    "Hindi",
+    "Punjabi",
+    "Gujarati",
+    "Marathi",
+    "Kannada",
+  ].reduce((prev, curr) => {
+    return {
+      ...prev,
+      [curr]: api.google.chats.useQuery({
+        chats: chats.map((v) => v.msg),
+        language: curr as
+          | "Hindi"
+          | "Punjabi"
+          | "Gujarati"
+          | "Marathi"
+          | "Kannada",
+      }),
+    };
+  }, {});
 
-  const reviews = api.google.rating.useQuery(
-    { message: myReview },
-    { refetchOnMount: false, refetchOnWindowFocus: false }
-  );
+  // const reviews = api.google.rating.useQuery(
+  //   { message: myReview },
+  //   { refetchOnMount: false, refetchOnWindowFocus: false }
+  // );
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const reviewJSON = reviews.data
-    ? reviews.data
-    : {
-        scores: ["pos", "pos", "pos"],
-        similar_message: "Similar Test",
-        top_3_comments: ["Test Comment", "Test Comment", "Test Comment"],
-      };
+  // const reviewJSON = reviews.data
+  //   ? reviews.data
+  //   : {
+  //       scores: ["pos", "pos", "pos"],
+  //       similar_message: "Similar Test",
+  //       top_3_comments: ["Test Comment", "Test Comment", "Test Comment"],
+  //     };
 
   return (
     <main className="flex h-[90vh] w-screen flex-row text-sm">
@@ -565,7 +596,7 @@ const UserProfile = () => {
               onClick={() => {
                 clearTimeout(timeoutState);
                 // eslint-disable-next-line @typescript-eslint/no-floating-promises
-                reviews.refetch();
+                // reviews.refetch();
                 setBookingState("final");
               }}
               className="mt-8 flex w-full flex-row items-center justify-center gap-4 rounded-lg bg-safar-orange px-4 py-4 text-safar-white"
@@ -581,7 +612,7 @@ const UserProfile = () => {
           </div>
         </div>
       )}
-      {bookingState === "final" && reviews.data && (
+      {/* {bookingState === "final" && reviews.data && (
         <div className="flex w-[40vw] flex-col overflow-y-scroll border-r-2 border-r-gray-200 p-8">
           <div className="mb-4 text-3xl text-safar-orange">
             Driver&apos;s Rating
@@ -644,7 +675,7 @@ const UserProfile = () => {
             />
           </button>
         </div>
-      )}
+      )} */}
       <div className="relative w-[60vw]">
         {bookingState === "booking" && (
           <div className="absolute bottom-0 z-10 flex w-full flex-col items-center justify-center border-t-2 border-t-gray-200 bg-safar-white px-8 py-16">
@@ -709,7 +740,7 @@ const UserProfile = () => {
                   <div>Rating</div>
                 </div>
                 <div className="flex flex-col items-center justify-evenly  ">
-                  <Link href="https://">
+                  <Link href="https://anmolmunnolli-safar-streamlit-deploy-app-e9vyag.streamlit.app/">
                     <Image
                       src="/svg/user-icon.svg"
                       alt="user"
@@ -800,7 +831,13 @@ const UserProfile = () => {
                       ];
                     });
                     // eslint-disable-next-line @typescript-eslint/no-floating-promises
-                    chatTranslate.refetch();
+                    Promise.all([
+                      chatTranslate["Hindi"].refetch(),
+                      chatTranslate["Punjabi"].refetch(),
+                      chatTranslate["Marathi"].refetch(),
+                      chatTranslate["Kannada"].refetch(),
+                      chatTranslate["Gujarati"].refetch(),
+                    ]);
                   }
                 }}
               >
@@ -812,25 +849,133 @@ const UserProfile = () => {
                   height={22}
                 />
               </button>
-              <button
-                onClick={() => {
-                  setTranslateState((_) => !_);
-                  if (!chatTranslate.data) return;
-                  setChats((old) => {
-                    return old.map((v, i) => {
-                      return { ...v, translation: chatTranslate.data[i] };
-                    });
-                  });
-                }}
-              >
-                <Image
-                  src="/png/translate.png"
-                  alt="send"
-                  className="mr-8"
-                  width={22}
-                  height={22}
-                />
-              </button>
+              <div className="relative my-auto">
+                {showTranslator && (
+                  <div className="absolute bottom-0 left-[-25px] mb-[50px] flex flex-col rounded-md border-2 border-safar-orange bg-white py-4">
+                    <div
+                      onClick={() => {
+                        setTranslateState(false);
+                      }}
+                      className="cursor-pointer px-4 py-1 hover:bg-safar-orange hover:text-safar-white"
+                    >
+                      English
+                    </div>
+                    <div
+                      onClick={() => {
+                        if (!chatTranslate["Hindi"].data) return;
+                        setTranslateState(true);
+                        setLanguage("Hindi");
+                        setChats((old) => {
+                          return old.map((v, i) => {
+                            return {
+                              ...v,
+                              translation: chatTranslate["Hindi"].data[i],
+                            };
+                          });
+                        });
+                      }}
+                      className="cursor-pointer px-4 py-1 hover:bg-safar-orange hover:text-safar-white"
+                    >
+                      Hindi
+                    </div>
+                    <div
+                      onClick={() => {
+                        if (!chatTranslate["Punjabi"].data) return;
+                        setTranslateState(true);
+                        setLanguage("Punjabi");
+                        setChats((old) => {
+                          return old.map((v, i) => {
+                            return {
+                              ...v,
+                              translation: chatTranslate["Punjabi"].data[i],
+                            };
+                          });
+                        });
+                      }}
+                      className="cursor-pointer px-4 py-1 hover:bg-safar-orange hover:text-safar-white"
+                    >
+                      Punjabi
+                    </div>
+                    <div
+                      onClick={() => {
+                        if (!chatTranslate["Gujarati"].data) return;
+                        setTranslateState(true);
+                        setLanguage("Gujarati");
+                        setChats((old) => {
+                          return old.map((v, i) => {
+                            return {
+                              ...v,
+                              translation: chatTranslate["Gujarati"].data[i],
+                            };
+                          });
+                        });
+                      }}
+                      className="cursor-pointer px-4 py-1 hover:bg-safar-orange hover:text-safar-white"
+                    >
+                      Gujarati
+                    </div>
+                    <div
+                      onClick={() => {
+                        if (!chatTranslate["Marathi"].data) return;
+                        setTranslateState(true);
+                        setLanguage("Marathi");
+                        setChats((old) => {
+                          return old.map((v, i) => {
+                            return {
+                              ...v,
+                              translation: chatTranslate["Marathi"].data[i],
+                            };
+                          });
+                        });
+                      }}
+                      className="cursor-pointer px-4 py-1 hover:bg-safar-orange hover:text-safar-white"
+                    >
+                      Marathi
+                    </div>
+                    <div
+                      onClick={() => {
+                        if (!chatTranslate["Kannada"].data) return;
+                        setTranslateState(true);
+                        setLanguage("Kannada");
+                        setChats((old) => {
+                          return old.map((v, i) => {
+                            return {
+                              ...v,
+                              translation: chatTranslate["Kannada"].data[i],
+                            };
+                          });
+                        });
+                      }}
+                      className="cursor-pointer px-4 py-1 hover:bg-safar-orange hover:text-safar-white"
+                    >
+                      Kannada
+                    </div>
+                  </div>
+                )}
+                <button
+                  className="relative"
+                  // onClick={() => {
+                  //   setTranslateState((_) => !_);
+                  //   if (!chatTranslate.data) return;
+                  //   setChats((old) => {
+                  //     return old.map((v, i) => {
+                  //       return { ...v, translation: chatTranslate.data[i] };
+                  //     });
+                  //   });
+                  // }}
+                  onClick={() => {
+                    setShowTranslator((_) => !_);
+                  }}
+                >
+                  <Image
+                    src="/png/translate.png"
+                    alt="send"
+                    className="mr-8"
+                    width={22}
+                    height={22}
+                  />
+                </button>
+              </div>
             </div>
           </div>
         )}

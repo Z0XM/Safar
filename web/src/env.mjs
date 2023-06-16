@@ -9,8 +9,9 @@ export const env = createEnv({
   server: {
     DATABASE_URL: z.string().url(),
     GMAP_KEY: z.string(),
-    RATING_URL: z.string().url(),
     NODE_ENV: z.enum(["development", "test", "production"]),
+    AI_MARKETPLACE_API_KEY: z.string(),
+    PYTHON_URL: z.string(),
   },
 
   /**
@@ -30,7 +31,8 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
     GMAP_KEY: process.env.GMAP_KEY,
-    RATING_URL: process.env.RATING_URL,
+    AI_MARKETPLACE_API_KEY: process.env.AI_MARKETPLACE_API_KEY,
+    PYTHON_URL: process.env.PYTHON_URL,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
 });
