@@ -28,7 +28,7 @@ const UserProfile = () => {
   });
   const [bookingState, setBookingState] = useState<
     "searching" | "booking" | "onway" | "journey" | "review" | "final"
-  >("onway");
+  >("searching");
 
   const [timeoutState, setTimeoutState] = useState<
     NodeJS.Timeout | undefined
