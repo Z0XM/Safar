@@ -40,6 +40,8 @@ docker run -p 3000:3000 safar
 
 ## MLOps - Experiment Tracking
 
+### [See Model Analysis Report](https://api.wandb.ai/links/anmolmunnolli/plslmqmd)
+
 ## Features of Safar
 
 ![featurescover](https://github.com/Z0XM/Safar/assets/76272788/0ac62899-2770-4bfa-9f1c-eb39404cf5c9)
