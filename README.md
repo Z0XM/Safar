@@ -40,9 +40,35 @@ docker run -p 3000:3000 safar
 
 ## MLOps - Experiment Tracking
 
+### [See Model Analysis Report](https://api.wandb.ai/links/anmolmunnolli/plslmqmd)
+
 ## Features of Safar
 
 ![featurescover](https://github.com/Z0XM/Safar/assets/76272788/0ac62899-2770-4bfa-9f1c-eb39404cf5c9)
+
+### - *Improved User Experience to select different kinds of rides*: 
+
+By enhancing the user interface and experience, travelers will have a seamless and intuitive platform to select from various ride options. This will help streamline the process, reduce decision-making time, and improve overall customer satisfaction.
+
+### - *Route optimization using ML algorithms*: 
+
+ML algorithms can be applied to optimize routes based on real-time traffic data, historical patterns, and other relevant factors. This solution enables efficient navigation, reduces travel time, and enhances logistics efficiency, resulting in cost savings and improved customer experience. *This is implemented live on website using Google APIs*
+
+### - *Better route matching*: 
+
+By leveraging AI, the platform can intelligently match riders and drivers based on various parameters such as location, preferences, and availability. This ensures more accurate and efficient matching, minimizing waiting times and maximizing the utilization of resources.*This is implemented live on website using Google APIs*
+
+### - *Data analytics on driver background check*: 
+
+Through data analytics, the platform can perform comprehensive background checks on drivers, including license verification, criminal records, and driver performance history. This solution enhances safety and security for passengers, instilling trust in the travel service.
+
+### - *Language translation chat system*: 
+
+Implementing a language translation chat system enables seamless communication between riders and drivers who speak different languages. This feature improves accessibility and expands the customer base by eliminating language barriers, creating a more inclusive travel experience.
+
+### - *Security-focused platform with integrated ML options*: 
+
+By integrating machine learning algorithms, the platform can identify and flag any potential security risks or anomalies. This includes verifying driver documentation, monitoring for suspicious activities, and ensuring compliance with safety standards. This solution enhances the overall security of the travel service, providing peace of mind to both riders and drivers.
 
 ## Tech Stack
 
