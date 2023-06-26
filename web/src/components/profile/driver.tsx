@@ -27,7 +27,7 @@ const DriverProfile = () => {
                   <div>Rating</div>
                 </div>
                 <div className="flex flex-col items-center justify-evenly gap-2 ">
-                  <Link href="https://">
+                  <Link href="https://anmolmunnolli-safar-streamlit-deploy-app-e9vyag.streamlit.app/">
                     <Image
                       src="/svg/user-icon.svg"
                       alt="user"
