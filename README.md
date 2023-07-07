@@ -95,7 +95,7 @@ Team members are :
 [1. Anmol Munnolli](https://github.com/anmolmunnolli)  
 [2. Mukul Singh](https://github.com/Z0XM)  
 
-## Visit our Website:  //TODO
-## View our Presentation: //TODO
+## [Visit our Website](https://safar-smoky.vercel.app/)
+## [View our Presentation](https://docs.google.com/presentation/d/1_AB-zIwX1jZuNcF8Oa8aRJrPlnbhpsErwF-BmVVtDb4/edit?usp=sharing)
 
 ![thankucover](https://github.com/Z0XM/Safar/assets/76272788/0fa4a37c-0832-498a-99ff-3ed7c4b61659)
